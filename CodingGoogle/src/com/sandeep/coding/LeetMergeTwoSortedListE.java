@@ -5,9 +5,31 @@ public class LeetMergeTwoSortedListE {
 	
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         
-    	ListNode newList;
+    	ListNode newList = new ListNode(-1);
+    	ListNode recent = newList;
     	
-    	return list1;
+//    	System.out.println(list1.val);
+    	
+    	while (list1 !=null && list2 !=null) {
+			if (list1.val < list2.val) {
+				recent.next = list1;
+				list1 = list1.next;
+			} else {
+				recent.next = list2;
+				list2 = list2.next;
+			}
+			recent = recent.next;
+		}
+    	
+    	
+    	// Attach the remaining nodes from l1 or l2, if any
+        if (list1 != null) {
+            recent.next = list1;
+        } else {
+            recent.next = list2;
+        }
+        
+    	return newList.next;
     }
     
     public static ListNode createLinkedList(int[] arr) {
@@ -42,10 +64,11 @@ public class LeetMergeTwoSortedListE {
 //		System.out.println("Merged sorted Liste: " + obj.mergeTwoLists(head1, head2));
 		
 		ListNode curr = obj.mergeTwoLists(head1, head2);
-		while(curr != null) {
-			System.out.println(curr.val + " ");
-			curr = curr.next;
-		}
+		System.out.println(curr);
+//		while(curr != null) {
+//			System.out.println(curr.val + " ");
+//			curr = curr.next;
+//		}
 	
 
 	}
