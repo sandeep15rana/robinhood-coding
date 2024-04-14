@@ -2,9 +2,11 @@ package com.sandeep.coding;
 
 
 public class LeetMergeTwoSortedListE {
-
+	
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         
+    	ListNode newList;
+    	
     	return list1;
     }
     
@@ -34,15 +36,17 @@ public class LeetMergeTwoSortedListE {
 		ListNode head1 = createLinkedList(arr1);
 		ListNode head2 = createLinkedList(arr2);
 		
-		ListNode curr = head1;
+		
+		LeetMergeTwoSortedListE obj = new LeetMergeTwoSortedListE();
+		
+//		System.out.println("Merged sorted Liste: " + obj.mergeTwoLists(head1, head2));
+		
+		ListNode curr = obj.mergeTwoLists(head1, head2);
 		while(curr != null) {
 			System.out.println(curr.val + " ");
 			curr = curr.next;
 		}
-		
-		LeetMergeTwoSortedListE obj = new LeetMergeTwoSortedListE();
-		
-		System.out.println("Merged sorted Liste: " + obj.mergeTwoLists(head1, head2));
+	
 
 	}
 
