@@ -21,7 +21,6 @@ public class LeetMergeTwoSortedListE {
 			recent = recent.next;
 		}
     	
-    	
     	// Attach the remaining nodes from l1 or l2, if any
         if (list1 != null) {
             recent.next = list1;
@@ -50,8 +49,6 @@ public class LeetMergeTwoSortedListE {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-//		list1 = [1,2,4], list2 = [1,3,4]
-		
 		int[] arr1 = {1,2,4};
 		int[] arr2 = {1,3,4};
 		
@@ -60,15 +57,9 @@ public class LeetMergeTwoSortedListE {
 		
 		
 		LeetMergeTwoSortedListE obj = new LeetMergeTwoSortedListE();
-		
-//		System.out.println("Merged sorted Liste: " + obj.mergeTwoLists(head1, head2));
-		
+				
 		ListNode curr = obj.mergeTwoLists(head1, head2);
 		System.out.println(curr);
-//		while(curr != null) {
-//			System.out.println(curr.val + " ");
-//			curr = curr.next;
-//		}
 	
 
 	}
