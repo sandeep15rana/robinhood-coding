@@ -7,7 +7,7 @@ import java.util.Collections;
 
 public class LeetMedianSortedArrayH {
 
-// Given two sorted arrays nums1 and nums2 of size m and n respectively, 
+//  Given two sorted arrays nums1 and nums2 of size m and n respectively, 
 //	return the median of the two sorted arrays.
 //	nums1 = [1,2], nums2 = [3,4] --> Merge --> Sort --> logic
     
@@ -18,7 +18,7 @@ public class LeetMedianSortedArrayH {
         // Calculate the median based on the merged and sorted array
         return calculateMedian(mergedArray);
 	}
-        
+    
 	private int[] mergeSortedArrays(int[] nums1, int[] nums2) {
         int[] mergedArray = new int[nums1.length + nums2.length];
         System.arraycopy(nums1, 0, mergedArray, 0, nums1.length);
