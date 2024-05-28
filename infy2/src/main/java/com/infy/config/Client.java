@@ -3,6 +3,8 @@ package com.infy.config;
 import com.infy.service.*;
 import com.infy.dto.*;
 
+import java.util.List;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Client {
@@ -11,7 +13,7 @@ public class Client {
 		
 		// The Client class uses AnnotationConfigApplicationContext to load the Spring context 
 		// from SpringConfiguration.
-
+		
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);
 		
 		// The EmployeeService bean is retrieved from the context and used to perform operations.
@@ -25,7 +27,14 @@ public class Client {
 		emp.setDepartment("FIGS");
 		employeeService.insert(emp);
 		
+		// Get all employee 
+		
+		List<EmployeeDTO> employee = employeeService.getAllEmployees();
+        employee.forEach(System.out::println);
+		
+		
 		employeeService.delete(1);
 		
+		context.close();
 	}
 }
