@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.sandeep.springFileDemo.entity.FileData;
 
+
 public interface StorageRepository extends MongoRepository<FileData, String> {
+	
     Optional<FileData> findByName(String fileName);
 }

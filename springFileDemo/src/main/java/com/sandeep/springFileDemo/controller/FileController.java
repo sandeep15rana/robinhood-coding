@@ -1,5 +1,7 @@
 package com.sandeep.springFileDemo.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -24,10 +26,14 @@ public class FileController {
     @Autowired
     private StorageService service;
 
-    logger.info("Upload controller initiated...");
-    
+    // Logger added 
+    private static final Logger logger = LoggerFactory.getLogger(FileController.class);
+    		
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestPart("file") MultipartFile file) {
+    	
+    	logger.info("Upload block initiated in controller..");
+    	
         String message = "";
         try {
             message = service.uploadFile(file);
@@ -40,6 +46,9 @@ public class FileController {
 
     @GetMapping("/download")
     public ResponseEntity<byte[]> downloadFile(@RequestParam("fileName") String fileName) {
+    	
+    	logger.info("Download block initiated in controller..");
+    	
         FileData fileData = service.downloadFile(fileName);
 
         return ResponseEntity.ok()

@@ -1,7 +1,11 @@
 package com.sandeep.springFileDemo.entity;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.sandeep.springFileDemo.SpringFileDemoApplication;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +19,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Document(collection = "files")
 public class FileData {
+
+    // Logger added 
+    private static final Logger logger = LoggerFactory.getLogger(FileData.class);
 
     @Id
     private String id;
@@ -38,6 +45,45 @@ public class FileData {
 	public String getType() {
 	    return type;
 	}
+
+	// Manually implemented builder pattern
+    public static class Builder {
+        private String id;
+        private String name;
+        private String type;
+        private byte[] fileData;
+
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        public Builder fileData(byte[] fileData) {
+            this.fileData = fileData;
+            return this;
+        }
+
+        public FileData build() {
+            return new FileData(this);
+        }
+    }
+
+    private FileData(Builder builder) {
+        this.id = builder.id;
+        this.name = builder.name;
+        this.type = builder.type;
+        this.fileData = builder.fileData;
+    }
 
 }
 
