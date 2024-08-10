@@ -20,9 +20,12 @@ import com.sandeep.springFileDemo.service.StorageService;
 @RequestMapping("/files")
 public class FileController {
 
+	
     @Autowired
     private StorageService service;
 
+    logger.info("Upload controller initiated...");
+    
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestPart("file") MultipartFile file) {
         String message = "";
